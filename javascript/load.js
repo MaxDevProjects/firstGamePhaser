@@ -5,7 +5,7 @@ var loading;
 var loadState = {
 
     preload : function() {
-        loading = game.add.text(80, 150, "loading...0%", { font: '30px monospace', fill: '#ffffff'});
+        loading = game.add.text(10, 10, "loading...0%", { font: '30px monospace', fill: '#ffffff'});
 
         this.game.load.spritesheet('spiderTilesheet', 'assets/img/spiderTilesheet.png', 64, 64);
         this.game.load.spritesheet('smallSpiderWalk', 'assets/img/smallSpiderWalk.png', 32, 32);
