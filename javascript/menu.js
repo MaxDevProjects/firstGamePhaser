@@ -2,7 +2,7 @@ var menuState = {
 
     create : function() {
         
-        var gameName = game.add.text(80, 80, 'Base Template', { font: '50px monospace', fill: '#ffffff'});
+        var gameName = game.add.text(80, 80, '-EAT IT-', { font: '50px monospace', fill: '#ffffff'});
 
         var gameStart = game.add.text(80, game.world.height - 80, 'press space to start', { font: '50px monospace', fill: '#ffffff'});
 
