@@ -11,7 +11,12 @@ var loadState = {
         this.game.load.spritesheet('spiderTilesheet', 'assets/img/spiderTilesheet.png', 64, 64);
         this.game.load.spritesheet('smallSpiderWalk', 'assets/img/smallSpiderWalk.png', 32, 32);
         game.load.image('sprite', 'assets/img/spriteTest.png');
-        game.load.image('buttons', 'assets/sticks/button.png');
+        
+        game.load.image('upButton', 'assets/sticks/upButton.png');
+        game.load.image('downButton', 'assets/sticks/downButton.png');
+        game.load.image('rightButton', 'assets/sticks/rightButton.png');
+        game.load.image('leftButton', 'assets/sticks/leftButton.png');
+
         game.load.image('startButton', 'assets/sticks/startButton.png');
     },
     

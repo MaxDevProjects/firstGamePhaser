@@ -9,6 +9,15 @@ var gameOver = false;
 var toMuchEat = false;
 var lessEat = false;
 
+var upButton;
+var downButton;
+var rightButton;
+var leftButton;
+var upButtonClicked = false;
+var downButtonClicked = false;
+var rightButtonClicked = false;
+var leftButtonClicked = false;
+
 var playState = {
 
     
@@ -125,8 +134,19 @@ var playState = {
     },
 
     controle: function () {
-        var sticks = this.game.add.sprite(10, this.game.world.height - 250, 'buttons');
+        //var sticks = this.game.add.sprite(10, this.game.world.height - 250, 'buttons');
+        upButton = this.game.add.sprite(120, this.game.world.height - 180, 'upButton');
+        upButton.anchor.setTo(0.5);
+        downButton = this.game.add.sprite(120, this.game.world.height - 60, 'downButton');
+        downButton.anchor.setTo(0.5);
+        rightButton = this.game.add.sprite(180, this.game.world.height - 120, 'rightButton');
+        rightButton.anchor.setTo(0.5);
+        leftButton = this.game.add.sprite(60, this.game.world.height - 120, 'leftButton');
+        leftButton.anchor.setTo(0.5);
+        
+
     },
+
 
 
     create: function () {
@@ -259,7 +279,6 @@ var playState = {
         this.collision();
         this.spiderLife();
         this.updatesmallSpider();
-
     }
     
 };

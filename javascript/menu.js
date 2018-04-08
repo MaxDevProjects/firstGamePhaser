@@ -1,12 +1,16 @@
 var group;
+var startText;
+var gameName;
+var tweenButton;
+var tweenText;
 var menuState = {
     
     create : function() {
         
         
-        var gameName = game.add.text(80, 80, '-EAT IT-', { font: '50px monospace', fill: '#ffffff'});
+        gameName = game.add.text(80, 80, '-EAT IT-', { font: '50px monospace', fill: '#ffffff'});
 
-        var startText = game.add.text(game.world.centerX, game.world.height - 80, 'Start', { font: '50px monospace', fill: '#ffffff' });
+        startText = game.add.text(game.world.centerX, game.world.height - 80, 'Start', { font: '50px monospace', fill: '#ffffff' });
         startText.anchor.setTo(0.5);
         startButton = game.add.button(game.world.centerX, game.world.height - 80, 'startButton', this.actionOnClick, this, 2, 1, 0);        
         startButton.anchor.setTo(0.5);
@@ -20,8 +24,8 @@ var menuState = {
         startText.alpha = 0;
         startButton.alpha = 0;
         
-        var tweenButton = game.add.tween(startButton).to({ alpha: 1 }, 1000, "Linear", true, 0, -1);
-        var tweenText = game.add.tween(startText).to({ alpha: 1 }, 1000, "Linear", true, 0, -1);
+        tweenButton = game.add.tween(startButton).to({ alpha: 1 }, 1000, "Linear", true, 0, -1);
+        tweenText = game.add.tween(startText).to({ alpha: 1 }, 1000, "Linear", true, 0, -1);
         
         
         tweenButton.yoyo(true, 1000);
@@ -29,12 +33,14 @@ var menuState = {
         
         group = game.add.group();
 
-        group.add(startText, startButton);
+        group.add(startButton);
+        group.add(startText);
     },
 
     actionOnClick : function () {
-       game.state.start('play');
-        game.world.remove(startButton, startText);
+        game.state.start('play');
+        game.world.remove(startButton);
+        game.world.remove(startText);        
     },
 
     start : function() {
