@@ -11,10 +11,7 @@ var lessEat = false;
 
 var playState = {
 
-    controle : function() {
-        var sticks = this.game.add.sprite(10, this.game.world.height - 250, 'buttons');
-    },
-
+    
     spiderLife: function () {
         if (colide == true) {
             __life = __life + __timeLife;
@@ -127,12 +124,17 @@ var playState = {
         };
     },
 
+    controle: function () {
+        var sticks = this.game.add.sprite(10, this.game.world.height - 250, 'buttons');
+    },
+
+
     create: function () {
         //initialiser le jeu
-        this.controle();
         this.initspider();
         this.initsmallSpider();
         this.addScore();
+        this.controle();
 
     },
 
