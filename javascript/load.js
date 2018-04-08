@@ -2,6 +2,7 @@ var i = 0;
 var j = 0;
 var loadingEnd = false;
 var loading;
+var startButton;
 var loadState = {
 
     preload : function() {
@@ -11,6 +12,7 @@ var loadState = {
         this.game.load.spritesheet('smallSpiderWalk', 'assets/img/smallSpiderWalk.png', 32, 32);
         game.load.image('sprite', 'assets/img/spriteTest.png');
         game.load.image('buttons', 'assets/sticks/button.png');
+        game.load.image('startButton', 'assets/sticks/startButton.png');
     },
     
     update : function() {
