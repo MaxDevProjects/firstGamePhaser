@@ -10,7 +10,7 @@ var loadState = {
         this.game.load.spritesheet('spiderTilesheet', 'assets/img/spiderTilesheet.png', 64, 64);
         this.game.load.spritesheet('smallSpiderWalk', 'assets/img/smallSpiderWalk.png', 32, 32);
         game.load.image('sprite', 'assets/img/spriteTest.png');
-
+        game.load.image('buttons', 'assets/sticks/button.png');
     },
     
     update : function() {
