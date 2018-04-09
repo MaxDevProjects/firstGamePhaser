@@ -12,8 +12,6 @@ function preload() {
 function create() {
     if (!game.device.desktop) {     
         game.input.onDown.add(gofull, this); 
-        __width_Size = "100%";
-        __height_Size = "100%";
     }
 }
 function update() {
@@ -22,7 +20,14 @@ function update() {
 function render() {
     
     function gofull() { 
-        game.scale.startFullScreen(false); 
+        game.scale.startFullScreen(true); 
+        game.scale.pageAlignHorizontally = true;
+        game.scale.pageAlignVertically = true;
+        // using RESIZE scale mode
+        game.scale.scaleMode = Phaser.ScaleManager.RESIZE;
+        game.scale.setScreenSize(true);
+        var __width_Size = "100%";
+        var __height_Size = "100%";
     }
 }
 
