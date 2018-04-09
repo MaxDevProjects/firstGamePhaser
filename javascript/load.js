@@ -18,6 +18,9 @@ var loadState = {
         game.load.image('leftButton', 'assets/sticks/leftButton.png');
 
         game.load.image('startButton', 'assets/sticks/startButton.png');
+
+
+        
     },
     
     update : function() {

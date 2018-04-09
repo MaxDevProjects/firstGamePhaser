@@ -8,6 +8,7 @@ var __time = 20;
 var gameOver = false;
 var toMuchEat = false;
 var lessEat = false;
+var left , right, up , down;
 
 var upButton;
 var downButton;
@@ -84,7 +85,6 @@ var playState = {
         this.spider.y = ranY;
         //console.log(this.spider.angle);
         this.spider.isDead = false;
-
     },
     initsmallSpider: function () {
         var ranX2 = Math.random() * this.stage.width;
@@ -135,15 +135,34 @@ var playState = {
 
     controle: function () {
         //var sticks = this.game.add.sprite(10, this.game.world.height - 250, 'buttons');
-        upButton = this.game.add.sprite(120, this.game.world.height - 180, 'upButton');
+        upButton = game.add.button(120, this.game.world.height - 175, 'upButton',0,1,0,1);
         upButton.anchor.setTo(0.5);
-        downButton = this.game.add.sprite(120, this.game.world.height - 60, 'downButton');
+        downButton = game.add.button(120, this.game.world.height - 100, 'downButton', 0, 1, 0, 1);
         downButton.anchor.setTo(0.5);
-        rightButton = this.game.add.sprite(180, this.game.world.height - 120, 'rightButton');
+        rightButton = game.add.button(180, this.game.world.height - 137.5, 'rightButton', 0, 1, 0, 1);
         rightButton.anchor.setTo(0.5);
-        leftButton = this.game.add.sprite(60, this.game.world.height - 120, 'leftButton');
+        leftButton = game.add.button(60, this.game.world.height - 137.5, 'leftButton', 0, 1, 0, 1);
         leftButton.anchor.setTo(0.5);
-        
+
+        upButton.events.onInputDown.add(function () { up = true });       
+        upButton.events.onInputUp.add(function () { up = false });  
+        upButton.events.onInputOver.add(function () { up = true });
+        upButton.events.onInputOut.add(function () { up = false });          
+
+        downButton.events.onInputDown.add(function () { down = true });       
+        downButton.events.onInputUp.add(function () { down = false });  
+        downButton.events.onInputOver.add(function () { down = true });
+        downButton.events.onInputOut.add(function () { down = false });      
+
+        rightButton.events.onInputDown.add(function () { right = true });       
+        rightButton.events.onInputUp.add(function () { right = false });   
+        rightButton.events.onInputOver.add(function () { right = true });
+        rightButton.events.onInputOut.add(function () { right = false });      
+
+        leftButton.events.onInputDown.add(function () { left = true });       
+        leftButton.events.onInputUp.add(function () { left = false });       
+        leftButton.events.onInputOver.add(function () { left = true });
+        leftButton.events.onInputOut.add(function () { left = false });
 
     },
 
@@ -165,29 +184,41 @@ var playState = {
         this.spider.oldY = this.spider.y;
         this.spider.scale.setTo(__life);
 
-        if (this.input.keyboard.isDown(Phaser.Keyboard.Z) == true) {
+        if (this.input.keyboard.isDown(Phaser.Keyboard.Z) == true || up) {
             this.spider.y = this.spider.y - 5
             this.spider.angle = 90;
             this.spider.play("spiderwalk");
+            upButton.scale.setTo(1.1);
             // console.log(this.spider.y);
+        }else{
+            upButton.scale.setTo(1);
         }
-        if (this.input.keyboard.isDown(Phaser.Keyboard.Q) == true) {
+        if (this.input.keyboard.isDown(Phaser.Keyboard.Q) == true || left) {
             this.spider.x = this.spider.x - 5
             this.spider.angle = 0;
             this.spider.play("spiderwalk");
+            leftButton.scale.setTo(1.1);
             // console.log(this.spider.x);
+        }else{
+            leftButton.scale.setTo(1);
         }
-        if (this.input.keyboard.isDown(Phaser.Keyboard.S) == true) {
+        if (this.input.keyboard.isDown(Phaser.Keyboard.S) == true || down) {
             this.spider.y = this.spider.y + 5
             this.spider.angle = -90;
             this.spider.play("spiderwalk");
+            downButton.scale.setTo(1.1);
             // console.log(this.spider.y);
+        }else{
+            downButton.scale.setTo(1);
         }
-        if (this.input.keyboard.isDown(Phaser.Keyboard.D) == true) {
+        if (this.input.keyboard.isDown(Phaser.Keyboard.D) == true || right) {
             this.spider.x = this.spider.x + 5
             this.spider.angle = 180;
             this.spider.play("spiderwalk");
+            rightButton.scale.setTo(1.1);
             //console.log(this.spider.x);
+        }else{
+            rightButton.scale.setTo(1);
         }
         if (this.spider.x >= 800 + this.spider.width) {
             //console.log("sortie");
@@ -258,7 +289,7 @@ var playState = {
         // console.log("vx: " + this.smallSpider.vx + " vy: " + this.smallSpider.vy)
     },
     collision: function () {
-        if (this.AABB(this.spider.x - (10 + __life * 0.5), this.spider.y, this.spider.width / 3, this.spider.height / 3, this.smallSpider.x, this.smallSpider.y, this.smallSpider.width, this.smallSpider.height)) {
+        if (this.AABB(this.spider.x - (10 + __life), this.spider.y, this.spider.width / 3, this.spider.height / 3, this.smallSpider.x, this.smallSpider.y, this.smallSpider.width, this.smallSpider.height)) {
             //console.log("collision");
             this.smallSpider.destroy();
             this.initsmallSpider();
