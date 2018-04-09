@@ -1,5 +1,5 @@
-var __width_Size = 800;
-var __height_Size = 600;
+var __width_Size = "85";
+var __height_Size = "95%";
 
 var game = new Phaser.Game(__width_Size , __height_Size, Phaser.AUTO, 'content', { preload: preload, create: create, update: update, render: render });
 
