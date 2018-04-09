@@ -135,13 +135,13 @@ var playState = {
 
     controle: function () {
         //var sticks = this.game.add.sprite(10, this.game.world.height - 250, 'buttons');
-        upButton = game.add.button(120, this.game.world.height - 175, 'upButton',0,1,0,1);
+        upButton = game.add.button(175, this.game.world.height - 230, 'upButton',0,1,0,1);
         upButton.anchor.setTo(0.5);
-        downButton = game.add.button(120, this.game.world.height - 100, 'downButton', 0, 1, 0, 1);
+        downButton = game.add.button(175, this.game.world.height - 70, 'downButton', 0, 1, 0, 1);
         downButton.anchor.setTo(0.5);
-        rightButton = game.add.button(180, this.game.world.height - 137.5, 'rightButton', 0, 1, 0, 1);
+        rightButton = game.add.button(280, this.game.world.height - 150, 'rightButton', 0, 1, 0, 1);
         rightButton.anchor.setTo(0.5);
-        leftButton = game.add.button(60, this.game.world.height - 137.5, 'leftButton', 0, 1, 0, 1);
+        leftButton = game.add.button(70, this.game.world.height - 150, 'leftButton', 0, 1, 0, 1);
         leftButton.anchor.setTo(0.5);
 
         upButton.events.onInputDown.add(function () { up = true });       
