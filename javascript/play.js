@@ -4,7 +4,7 @@ var __lifeMax = 3;
 var __lifeMin = 0.5;
 var __timeLife = 0.1;
 var __decrementTime = 0.1;
-var __time = 20;
+var __time = 25;
 var gameOver = false;
 var toMuchEat = false;
 var lessEat = false;
@@ -31,11 +31,11 @@ var playState = {
             //console.log("time : " + __time );
             if (__time <= 0) {
                 if (__life >= 1.5 && __life < 2) {
-                    __time = 22;
+                    __time = 27.5;
                 } else if (__life >= 2) {
-                    __time = 25;
+                    __time = 30;
                 } else {
-                    __time = 20
+                    __time = 25
                 }
                 __life = __life - __timeLife;
                 console.log("--life :" + __life);
@@ -123,7 +123,7 @@ var playState = {
     },
 
     addScore: function () {
-        this.scoreText = this.add.text(10, 10, "score : 0", { font: "20px monospace", fill: "#ffff00" });
+        this.scoreText = this.add.text(35, 10, "score : 0", { font: "20px monospace", fill: "#ffff00" });
         this.score = 0;
     },
 
@@ -289,7 +289,7 @@ var playState = {
         // console.log("vx: " + this.smallSpider.vx + " vy: " + this.smallSpider.vy)
     },
     collision: function () {
-        if (this.AABB(this.spider.x - (10 + __life), this.spider.y, this.spider.width / 3, this.spider.height / 3, this.smallSpider.x, this.smallSpider.y, this.smallSpider.width, this.smallSpider.height)) {
+        if (this.AABB(this.spider.x - (10), this.spider.y, this.spider.width / __life, this.spider.height / __life, this.smallSpider.x, this.smallSpider.y, this.smallSpider.width, this.smallSpider.height)) {
             //console.log("collision");
             this.smallSpider.destroy();
             this.initsmallSpider();

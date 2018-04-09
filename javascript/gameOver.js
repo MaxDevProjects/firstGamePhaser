@@ -5,12 +5,12 @@ var gameOverState = {
     create : function() {
         
         if(toMuchEat){
-            textG_O = game.add.text(80, 80, 'You have over-eating!!!', { font: '50px monospace', fill: '#ff0000'});
+            textG_O = game.add.text(50, 80, 'You have over-eating!!!', { font: '50px monospace', fill: '#ff0000'});
         }else if(lessEat){
-            textG_O = game.add.text(80, 80, 'you have not eaten enough!!!', { font: '50px monospace', fill: '#ff0000' });
+            textG_O = game.add.text(50, 80, 'you have not eaten enough!!!', { font: '50px monospace', fill: '#ff0000' });
         }
 
-        var textScore = game.add.text(80, 120, 'score : 0', { font: '50px monospace', fill: '#ff0000' });
+        var textScore = game.add.text(80, 240, 'score : 0', { font: '50px monospace', fill: '#ff0000' });
         textScore.text = `score : ${playState.score}`
 
         startText = game.add.text(game.world.centerX, game.world.height - 80, 'restart', { font: '50px monospace', fill: '#ffffff' });
