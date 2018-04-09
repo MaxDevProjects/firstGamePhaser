@@ -220,7 +220,7 @@ var playState = {
         }else{
             rightButton.scale.setTo(1);
         }
-        if (this.spider.x >= 800 + this.spider.width) {
+        if (this.spider.x >= game.world.width + (this.spider.width * 2)) {
             //console.log("sortie");
             this.spider.x -= this.spider.oldX;
         }
@@ -228,7 +228,7 @@ var playState = {
             // console.log("sortie");
             this.spider.x = 800;
         }
-        if (this.spider.y >= 600 + this.spider.height) {
+        if (this.spider.y >= game.world.height + (this.spider.height * 2)) {
             //console.log("sortie");
             this.spider.y -= this.spider.oldY;
         }
@@ -247,7 +247,7 @@ var playState = {
             this.smallSpider.vy = Math.floor(Math.random() * 10);
         }
         //this.spider.x += 2;
-        if (this.smallSpider.x >= 800) {
+        if (this.smallSpider.x >= game.world.width) {
             this.smallSpider.x = this.smallSpider.oldX;
             this.smallSpider.vx = Math.floor(Math.random() * 10);
             this.smallSpider.vy = Math.floor(Math.random() * 10);
@@ -266,7 +266,7 @@ var playState = {
             this.smallSpider.vy = Math.floor(Math.random() * 10);
             this.smallSpider.vy = +this.smallSpider.vy;
         }
-        if (this.smallSpider.y >= 600) {
+        if (this.smallSpider.y >= game.world.height) {
             this.smallSpider.y = this.smallSpider.oldY;
             this.smallSpider.vx = Math.floor(Math.random() * 10);
             this.smallSpider.vy = Math.floor(Math.random() * 10);
