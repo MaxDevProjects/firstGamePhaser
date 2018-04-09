@@ -26,9 +26,9 @@ function update() {
 function render() {
     
     function gofull() { 
-        game.scale.startFullScreen(true);
-        spider.scale.setTo(2);
-        smallSpider.scale.setTo(2);
+        game.scale.startFullScreen(false);
+        play.spider.scale.setTo(2);
+        play.smallSpider.scale.setTo(2);
         __life *= 2;
         __lifeMax *= 2;
         __lifeMin *= 2;
