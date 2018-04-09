@@ -1,15 +1,21 @@
-var game = new Phaser.Game("80%" , "100%", Phaser.AUTO, 'content', { preload: preload, create: create, update: update, render: render });
+var __width_Size = 800;
+var __height_Size = 600;
+
+var game = new Phaser.Game(__width_Size , __height_Size, Phaser.AUTO, 'content', { preload: preload, create: create, update: update, render: render });
 
 
-
-    function preload() {
-        game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-        game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
-
+function preload() {
+    game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+    game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
+    
+}
+function create() {
+    if (!game.device.desktop) {     
+        game.input.onDown.add(gofull, this); 
+        __width_Size = "100%";
+        __height_Size = "100%";
     }
-     function create() {
-        if (!game.device.desktop) { game.input.onDown.add(gofull, this); }
-    }
+}
     function update() {
 
     }
