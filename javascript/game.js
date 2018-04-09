@@ -27,8 +27,14 @@ function render() {
     
     function gofull() { 
         game.scale.startFullScreen(true);
-        var __width_Size = "100%";
-        var __height_Size = "100%";
+        spider.scale.setTo(2);
+        smallSpider.scale.setTo(2);
+        __life *= 2;
+        __lifeMax *= 2;
+        __lifeMin *= 2;
+        __timeLife *= 2;
+        __decrementTime *= 2;
+        __time = 25 + 10;
     }
 }
 
