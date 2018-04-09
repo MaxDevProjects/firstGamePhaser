@@ -12,6 +12,8 @@ function preload() {
 function create() {
     if (!game.device.desktop) {     
         game.input.onDown.add(gofull, this); 
+        __width_Size = "100%";
+        __height_Size = "100%";
     }
 }
 function update() {
@@ -21,8 +23,6 @@ function render() {
     
     function gofull() { 
         game.scale.startFullScreen(false); 
-        __width_Size = "100%";
-        __height_Size = "100%";
     }
 }
 
