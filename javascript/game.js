@@ -15,7 +15,7 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'content', { preload: preload,
     }
     function render() {
 
-        function gofull() { game.scale.startFullScreen(true); }
+        function gofull() { game.scale.startFullScreen(false); }
     }
 
 
